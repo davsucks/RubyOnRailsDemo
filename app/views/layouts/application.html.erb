@@ -14,11 +14,13 @@
   </div>
   <div id="columns">
     <div id="side">
+      <% if @cart %>
+        <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+          <%= render @cart %>
+        <% end %>
+      <% end %>
+
       <ul>
-        <li class="time_header">Today's date:</li>
-        <% t = Time.now %>
-        <li class="time"><%=t.hour%>:<%=t.min%> on <%=t.month%>/<%=t.day%>/<%=t.year%></li>
-        <li> </li>
         <li><a href="http://www....">Home</a></li>
         <li><a href="http://www..../faq">Questions</a></li>
         <li><a href="http://www..../news">News</a></li>
